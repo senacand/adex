@@ -31,6 +31,9 @@
 		DDC8FD1C2459B39C00E3588C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DDC8FD1B2459B39C00E3588C /* RxBlocking */; };
 		DDC8FD1F2459B69F00E3588C /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDC8FD1E2459B69F00E3588C /* KingfisherSwiftUI */; };
 		DDC8FD222459B76500E3588C /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DDC8FD212459B76500E3588C /* RxMoya */; };
+		DDC8FD252459BB9200E3588C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = DDC8FD242459BB9200E3588C /* SwiftUIX */; };
+		DDC8FD292459DED400E3588C /* PubStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8FD282459DED400E3588C /* PubStatus.swift */; };
+		DDC8FD2C2459E1E400E3588C /* HTMLEntities in Frameworks */ = {isa = PBXBuildFile; productRef = DDC8FD2B2459E1E400E3588C /* HTMLEntities */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,7 @@
 		DDC8FD0A2459A9C100E3588C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		DDC8FD0D2459AED100E3588C /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		DDC8FD102459B0A400E3588C /* MangaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaView.swift; sourceTree = "<group>"; };
+		DDC8FD282459DED400E3588C /* PubStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +87,9 @@
 			files = (
 				DDC8FD222459B76500E3588C /* RxMoya in Frameworks */,
 				DDC8FD1A2459B39C00E3588C /* RxCocoa in Frameworks */,
+				DDC8FD2C2459E1E400E3588C /* HTMLEntities in Frameworks */,
 				DDC8FD182459B39C00E3588C /* RxRelay in Frameworks */,
+				DDC8FD252459BB9200E3588C /* SwiftUIX in Frameworks */,
 				DDC8FD1F2459B69F00E3588C /* KingfisherSwiftUI in Frameworks */,
 				DDC8FD142459B39C00E3588C /* RxSwift in Frameworks */,
 			);
@@ -213,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC8FD0A2459A9C100E3588C /* Genre.swift */,
+				DDC8FD282459DED400E3588C /* PubStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -255,6 +262,8 @@
 				DDC8FD192459B39C00E3588C /* RxCocoa */,
 				DDC8FD1E2459B69F00E3588C /* KingfisherSwiftUI */,
 				DDC8FD212459B76500E3588C /* RxMoya */,
+				DDC8FD242459BB9200E3588C /* SwiftUIX */,
+				DDC8FD2B2459E1E400E3588C /* HTMLEntities */,
 			);
 			productName = adex;
 			productReference = DD5613362459745E000DFEDA /* adex.app */;
@@ -336,6 +345,8 @@
 				DDC8FD122459B39C00E3588C /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DDC8FD1D2459B69F00E3588C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DDC8FD202459B76500E3588C /* XCRemoteSwiftPackageReference "Moya" */,
+				DDC8FD232459BB9200E3588C /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				DDC8FD2A2459E1E400E3588C /* XCRemoteSwiftPackageReference "swift-html-entities" */,
 			);
 			productRefGroup = DD5613372459745E000DFEDA /* Products */;
 			projectDirPath = "";
@@ -386,6 +397,7 @@
 				DD56133A2459745E000DFEDA /* AppDelegate.swift in Sources */,
 				DD56137B24598C4E000DFEDA /* MangaChapter.swift in Sources */,
 				DD56137924598A93000DFEDA /* MangaLink.swift in Sources */,
+				DDC8FD292459DED400E3588C /* PubStatus.swift in Sources */,
 				DD561372245988B2000DFEDA /* DexProvider.swift in Sources */,
 				DDC8FD0E2459AED100E3588C /* LibraryView.swift in Sources */,
 				DDC8FD112459B0A400E3588C /* MangaView.swift in Sources */,
@@ -488,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -542,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -742,6 +754,22 @@
 				minimumVersion = 14.0.0;
 			};
 		};
+		DDC8FD232459BB9200E3588C /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DDC8FD2A2459E1E400E3588C /* XCRemoteSwiftPackageReference "swift-html-entities" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/IBM-Swift/swift-html-entities";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -779,6 +807,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DDC8FD202459B76500E3588C /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		DDC8FD242459BB9200E3588C /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDC8FD232459BB9200E3588C /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+		DDC8FD2B2459E1E400E3588C /* HTMLEntities */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDC8FD2A2459E1E400E3588C /* XCRemoteSwiftPackageReference "swift-html-entities" */;
+			productName = HTMLEntities;
 		};
 /* End XCSwiftPackageProductDependency section */
 

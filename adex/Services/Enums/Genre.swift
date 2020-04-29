@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Genre: Int {
+public enum Genre: Int, Codable {
     case yonKoma = 1
     case action = 2
     case adventure = 3
@@ -93,7 +93,7 @@ public enum Genre: Int {
     case zombies = 82
     case incest = 83
     
-    public var name: String {
+    public var title: String {
         switch self {
             case .yonKoma:
                 return "4-Koma"

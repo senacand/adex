@@ -15,7 +15,9 @@ struct LibraryView: View {
     var body: some View {
         NavigationView {
             List(library) { manga in
-                MangaRow(manga: manga.manga)
+                NavigationLink(destination: MangaView(manga: manga)) {
+                    MangaRow(manga: manga.manga)
+                }
             }
             .navigationBarTitle(Text("My Library"))
         }
@@ -66,7 +68,7 @@ struct MangaRow: View {
                     .frame(height: 8.0)
                 Text(
                     manga.genres.map {
-                        $0.name
+                        $0.title
                     }.joined(separator: ", ")
                 )
                     .font(.caption)

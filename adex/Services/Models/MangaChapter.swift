@@ -18,6 +18,16 @@ public struct MangaChapter: Codable {
     public let groupID3: Int?
     public let groupName3: String?
     public let timestamp: Int
+    
+    public var chapterName: String {
+        [
+            (volume != "") ? "Vol. \(volume)" : nil,
+            (chapter != "") ? "Chapter \(chapter)" : nil,
+            (title != "") ? ": \(title)" : nil
+        ]
+        .compactMap({ $0 })
+        .joined(separator: " ")
+    }
 
     public enum CodingKeys: String, CodingKey {
         case volume, chapter, title

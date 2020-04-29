@@ -13,19 +13,13 @@ public struct MangaDetail: Codable {
     // Raw values
     private let coverURLRaw: String
     private let hentaiRaw: Int
-    private let genresRaw: [Int]
     
     public let mangaDescription, title, artist: String
     public let author: String
-    public let status: Int
+    public let status: PubStatus
+    public let genres: [Genre]
     public let lastChapter, langName, langFlag: String
     public let links: MangaLink
-    
-    public var genres: [Genre] {
-        genresRaw.compactMap { genre in
-            Genre(rawValue: genre)
-        }
-    }
     
     public var coverURL: URL? {
         URL(string: "https://mangadex.org\(coverURLRaw)")
@@ -38,8 +32,7 @@ public struct MangaDetail: Codable {
     public enum CodingKeys: String, CodingKey {
         case coverURLRaw = "cover_url"
         case mangaDescription = "description"
-        case title, artist, author, status
-        case genresRaw = "genres"
+        case title, artist, author, status, genres
         case lastChapter = "last_chapter"
         case langName = "lang_name"
         case langFlag = "lang_flag"
