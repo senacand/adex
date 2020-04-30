@@ -8,10 +8,8 @@
 
 import Foundation
 
-public struct Manga: Codable, Identifiable {
-    public var id: String {
-        "\(manga.title)-\(manga.coverURL?.absoluteString ?? "")"
-    }
+public struct Manga: Codable, Identifiable, Equatable {
+    public var id: String?
     public let manga: MangaDetail
     private let rawChapter: [String: MangaChapter]
     public let status: String
@@ -29,7 +27,7 @@ public struct Manga: Codable, Identifiable {
     }
     
     public enum CodingKeys: String, CodingKey {
-        case manga, status
+        case id, manga, status
         case rawChapter = "chapter"
     }
     
@@ -38,5 +36,15 @@ public struct Manga: Codable, Identifiable {
         let mockData = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
         
         return try! JSONDecoder().decode([Manga].self, from: mockData)
+            .map { (manga) -> Manga in
+                var mangaCopy = manga
+                mangaCopy.id = manga.manga.title
+                
+                return mangaCopy
+            }
+    }
+    
+    public static func == (lhs: Manga, rhs: Manga) -> Bool {
+        lhs.id == rhs.id
     }
 }

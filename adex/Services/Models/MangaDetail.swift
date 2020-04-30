@@ -19,7 +19,7 @@ public struct MangaDetail: Codable {
     public let status: PubStatus
     public let genres: [Genre]
     public let lastChapter, langName, langFlag: String
-    public let links: MangaLink
+    public let links: MangaLink?
     
     public var coverURL: URL? {
         URL(string: "https://mangadex.org\(coverURLRaw)")

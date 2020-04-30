@@ -2,32 +2,40 @@
 //  Chapter.swift
 //  adex
 //
-//  Created by Sena on 29/04/20.
+//  Created by Sena on 30/04/20.
 //  Copyright © 2020 Never Mind Dev. All rights reserved.
 //
 
 import Foundation
 
-public struct MangaChapter: Codable {
-    public let volume, chapter, title: String
-    public let langCode: String
-    public let groupID: Int?
-    public let groupName: String?
-    public let groupID2: Int?
-    public let groupName2: String?
-    public let groupID3: Int?
-    public let groupName3: String?
-    public let timestamp: Int
+public struct Chapter: Codable {
+    public let id, timestamp: Int
+    public let hash, volume, chapter, title: String
+    public let langName, langCode: String
+    public let mangaID, groupID, groupID2, groupID3: Int
+    public let comments: Int
+    public let server: String
+    private let pageArray: [String]
+    public let longStrip: Int
+    public let status: String
+    
+    public var pageURLs: [URL] {
+        pageArray.compactMap({
+            URL(string: "\(server)\(hash)/\($0)")
+        })
+    }
 
-    public enum CodingKeys: String, CodingKey {
-        case volume, chapter, title
+    enum CodingKeys: String, CodingKey {
+        case id, timestamp, hash, volume, chapter, title
+        case langName = "lang_name"
         case langCode = "lang_code"
+        case mangaID = "manga_id"
         case groupID = "group_id"
-        case groupName = "group_name"
         case groupID2 = "group_id_2"
-        case groupName2 = "group_name_2"
         case groupID3 = "group_id_3"
-        case groupName3 = "group_name_3"
-        case timestamp
+        case comments, server
+        case pageArray = "page_array"
+        case longStrip = "long_strip"
+        case status
     }
 }

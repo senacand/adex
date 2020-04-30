@@ -23,16 +23,23 @@ struct MangaView: View {
             InfoSection(manga: manga.manga)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .listRowInsets(EdgeInsets(.all, 0))
-            Section(header: Text("About")) {
-                Text(manga.manga.mangaDescription.htmlUnescape().split { $0.isNewline }.first ?? "")
-                    .padding(.bottom, 16.0)
+            if manga.manga.mangaDescription != "" {
+                Section(header: Text("About")) {
+                    Text(manga.manga.mangaDescription.htmlUnescape().split { $0.isNewline }.first ?? "")
+                        .padding(.top, 8.0)
+                        .padding(.bottom, 16.0)
+                }
             }
             Section(header: Text("Chapters")) {
                 ForEach(manga.chapter, id: \.0) { chapter  in
-                    Button(action: {
-                        self.safariURL = URL(string: "https://mangadex.org/chapter/\(chapter.0)")
-                        self.showSafari = true
-                    }) {
+//                    Button(action: {
+//                        self.safariURL = URL(string: "https://mangadex.org/chapter/\(chapter.0)")
+//                        self.showSafari = true
+//                    }) {
+//                        Text(chapter.1.chapterName)
+//                            .lineLimit(1)
+//                    }
+                    NavigationLink(destination: ReaderView(chapterId: chapter.0)) {
                         Text(chapter.1.chapterName)
                             .lineLimit(1)
                     }
@@ -93,15 +100,18 @@ private struct InfoSectionCover: View {
             KFImage(coverURL)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 200, alignment: .center)
+                .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 250, alignment: .center)
                 .clipped()
                 .blur(radius: 4.0, opaque: true)
                 .opacity(0.4)
             
             KFImage(coverURL)
                 .resizable()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 120, height: 120 * 1.57)
-                .padding(EdgeInsets(top: 100.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
+                .clipped()
+                .border(Color.systemBackground, width: 8.0)
+                .padding(EdgeInsets(top: 150.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
         }
     }
 }

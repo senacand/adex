@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD16F83B245A180C00B3B587 /* AddMangaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F83A245A180C00B3B587 /* AddMangaView.swift */; };
+		DD16F83D245A26E900B3B587 /* DexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F83C245A26E900B3B587 /* DexService.swift */; };
+		DD16F83F245A305600B3B587 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F83E245A305600B3B587 /* Chapter.swift */; };
+		DD16F842245A312600B3B587 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F841245A312600B3B587 /* ReaderView.swift */; };
 		DD56133A2459745E000DFEDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5613392459745E000DFEDA /* AppDelegate.swift */; };
 		DD56133C2459745E000DFEDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56133B2459745E000DFEDA /* SceneDelegate.swift */; };
 		DD56133F2459745E000DFEDA /* adex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD56133D2459745E000DFEDA /* adex.xcdatamodeld */; };
@@ -21,6 +25,7 @@
 		DD56137924598A93000DFEDA /* MangaLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56137824598A93000DFEDA /* MangaLink.swift */; };
 		DD56137B24598C4E000DFEDA /* MangaChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56137A24598C4E000DFEDA /* MangaChapter.swift */; };
 		DD56137D2459929A000DFEDA /* SampleManga.json in Resources */ = {isa = PBXBuildFile; fileRef = DD56137C2459929A000DFEDA /* SampleManga.json */; };
+		DDC334EF245B4C6A00D6A642 /* LibraryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC334EE245B4C6A00D6A642 /* LibraryStore.swift */; };
 		DDC8FD0B2459A9C100E3588C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8FD0A2459A9C100E3588C /* Genre.swift */; };
 		DDC8FD0E2459AED100E3588C /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8FD0D2459AED100E3588C /* LibraryView.swift */; };
 		DDC8FD112459B0A400E3588C /* MangaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8FD102459B0A400E3588C /* MangaView.swift */; };
@@ -54,7 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD5613362459745E000DFEDA /* adex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD16F83A245A180C00B3B587 /* AddMangaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMangaView.swift; sourceTree = "<group>"; };
+		DD16F83C245A26E900B3B587 /* DexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexService.swift; sourceTree = "<group>"; };
+		DD16F83E245A305600B3B587 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		DD16F841245A312600B3B587 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
+		DD5613362459745E000DFEDA /* ADex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5613392459745E000DFEDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD56133B2459745E000DFEDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD56133E2459745E000DFEDA /* adex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = adex.xcdatamodel; sourceTree = "<group>"; };
@@ -74,6 +83,7 @@
 		DD56137824598A93000DFEDA /* MangaLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLink.swift; sourceTree = "<group>"; };
 		DD56137A24598C4E000DFEDA /* MangaChapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaChapter.swift; sourceTree = "<group>"; };
 		DD56137C2459929A000DFEDA /* SampleManga.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleManga.json; sourceTree = "<group>"; };
+		DDC334EE245B4C6A00D6A642 /* LibraryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStore.swift; sourceTree = "<group>"; };
 		DDC8FD0A2459A9C100E3588C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		DDC8FD0D2459AED100E3588C /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		DDC8FD102459B0A400E3588C /* MangaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaView.swift; sourceTree = "<group>"; };
@@ -114,6 +124,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD16F839245A17EF00B3B587 /* AddManga */ = {
+			isa = PBXGroup;
+			children = (
+				DD16F83A245A180C00B3B587 /* AddMangaView.swift */,
+			);
+			path = AddManga;
+			sourceTree = "<group>";
+		};
+		DD16F840245A311500B3B587 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				DD16F841245A312600B3B587 /* ReaderView.swift */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
 		DD56132D2459745E000DFEDA = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +153,7 @@
 		DD5613372459745E000DFEDA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD5613362459745E000DFEDA /* adex.app */,
+				DD5613362459745E000DFEDA /* ADex.app */,
 				DD56134F24597466000DFEDA /* adexTests.xctest */,
 				DD56135A24597466000DFEDA /* adexUITests.xctest */,
 			);
@@ -179,6 +205,8 @@
 		DD56136E24598428000DFEDA /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				DD16F840245A311500B3B587 /* Reader */,
+				DD16F839245A17EF00B3B587 /* AddManga */,
 				DDC8FD0F2459B08C00E3588C /* Manga */,
 				DDC8FD0C2459AEC000E3588C /* Library */,
 			);
@@ -192,6 +220,8 @@
 				DD561373245989A3000DFEDA /* Models */,
 				DD561370245988A0000DFEDA /* Providers */,
 				DD56137C2459929A000DFEDA /* SampleManga.json */,
+				DD16F83C245A26E900B3B587 /* DexService.swift */,
+				DDC334EE245B4C6A00D6A642 /* LibraryStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -211,6 +241,7 @@
 				DD56137624598A5C000DFEDA /* MangaDetail.swift */,
 				DD56137824598A93000DFEDA /* MangaLink.swift */,
 				DD56137A24598C4E000DFEDA /* MangaChapter.swift */,
+				DD16F83E245A305600B3B587 /* Chapter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,7 +297,7 @@
 				DDC8FD2B2459E1E400E3588C /* HTMLEntities */,
 			);
 			productName = adex;
-			productReference = DD5613362459745E000DFEDA /* adex.app */;
+			productReference = DD5613362459745E000DFEDA /* ADex.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DD56134E24597466000DFEDA /* adexTests */ = {
@@ -394,12 +425,17 @@
 			files = (
 				DD561375245989C2000DFEDA /* Manga.swift in Sources */,
 				DD56133F2459745E000DFEDA /* adex.xcdatamodeld in Sources */,
+				DD16F83B245A180C00B3B587 /* AddMangaView.swift in Sources */,
 				DD56133A2459745E000DFEDA /* AppDelegate.swift in Sources */,
 				DD56137B24598C4E000DFEDA /* MangaChapter.swift in Sources */,
 				DD56137924598A93000DFEDA /* MangaLink.swift in Sources */,
+				DD16F83F245A305600B3B587 /* Chapter.swift in Sources */,
+				DD16F83D245A26E900B3B587 /* DexService.swift in Sources */,
 				DDC8FD292459DED400E3588C /* PubStatus.swift in Sources */,
+				DD16F842245A312600B3B587 /* ReaderView.swift in Sources */,
 				DD561372245988B2000DFEDA /* DexProvider.swift in Sources */,
 				DDC8FD0E2459AED100E3588C /* LibraryView.swift in Sources */,
+				DDC334EF245B4C6A00D6A642 /* LibraryStore.swift in Sources */,
 				DDC8FD112459B0A400E3588C /* MangaView.swift in Sources */,
 				DD56133C2459745E000DFEDA /* SceneDelegate.swift in Sources */,
 				DD56137724598A5C000DFEDA /* MangaDetail.swift in Sources */,
@@ -578,7 +614,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neverminddev.adex;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADex;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -598,7 +634,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neverminddev.adex;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADex;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
