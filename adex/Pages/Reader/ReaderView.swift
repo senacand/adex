@@ -19,6 +19,7 @@ struct ReaderView: View {
     private let service = DexService()
     let chapterId: String
     
+    @State var hasAppeared: Bool = false
     @State var chapterPages: [URL] = []
     @State var currentPageIndex: Int = 0
     
@@ -27,6 +28,9 @@ struct ReaderView: View {
             ForEach(self.chapterPages, id: \.absoluteString) { url in
                 GeometryReader { geometry in
                     KFImage(url)
+                        .placeholder {
+                            ActivityIndicator()
+                        }
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
@@ -35,8 +39,14 @@ struct ReaderView: View {
                 .edgesIgnoringSafeArea(.all)
             }
         }
+        .edgesIgnoringSafeArea(.all)
         .hideNavigationBar()
-        .onAppear(perform: self.fetchChapter)
+        .onAppear {
+            if !self.hasAppeared {
+                self.fetchChapter()
+                self.hasAppeared = true
+            }
+        }
     }
     
     private func fetchChapter() {

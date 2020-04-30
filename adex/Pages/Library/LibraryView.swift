@@ -7,12 +7,15 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import KingfisherSwiftUI
 
 struct LibraryView: View {
     @ObservedObject var libraryStore: LibraryStore
     
-    @State var showAddManga: Bool = false
+    @State private var hasAppeared: Bool = false
+    @State private var showAddManga: Bool = false
+    @State private var isLoading: Bool = false
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -32,19 +35,17 @@ struct LibraryView: View {
             .navigationBarTitle(Text("My Library"))
             .navigationBarItems(
                 trailing: HStack {
-                    Button(action: {
-                        self.libraryStore.updateLibrary {
-                            
-                        }
-                    }, label: {
-                        HStack {
-                            Image(systemName: "arrow.clockwise.circle.fill")
-                        }
-                    })
+                    if !self.isLoading {
+                        Button(action: updateLibrary, label: {
+                            HStack {
+                                Image(systemName: "arrow.clockwise.circle.fill")
+                            }
+                        })
+                    } else {
+                        ActivityIndicator()
+                    }
                     
-                    Button(action: {
-                        self.showAddManga = true
-                    }, label: {
+                    Button(action: { self.showAddManga = true }, label: {
                         HStack {
                             Image(systemName: "plus.circle.fill")
                             Text("Add")
@@ -52,6 +53,12 @@ struct LibraryView: View {
                     })
                 }
             )
+            .onAppear(perform: {
+                if !self.hasAppeared {
+                    self.updateLibrary()
+                    self.hasAppeared = true
+                }
+            })
             .sheet(isPresented: $showAddManga) {
                 AddMangaView(onAdd: { (manga) in
                     let _ = self.libraryStore.add(manga: manga)
@@ -59,6 +66,13 @@ struct LibraryView: View {
                 })
                 .colorScheme(self.colorScheme)
             }
+        }
+    }
+    
+    private func updateLibrary() {
+        isLoading = true
+        libraryStore.updateLibrary {
+            self.isLoading = false
         }
     }
 }
