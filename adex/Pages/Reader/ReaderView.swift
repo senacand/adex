@@ -7,8 +7,12 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import RxSwift
 import KingfisherSwiftUI
+import Kingfisher
+
+typealias View = SwiftUI.View // Kingfisher and SwiftUI both have "View"
 
 struct ReaderView: View {
     private let disposeBag = DisposeBag()
@@ -16,21 +20,22 @@ struct ReaderView: View {
     let chapterId: String
     
     @State var chapterPages: [URL] = []
+    @State var currentPageIndex: Int = 0
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView(.horizontal, showsIndicators: true) {
-                HStack {
-                    ForEach(self.chapterPages, id: \.absoluteString) { url in
-                        KFImage(url)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                            .clipped()
-                    }
+        PaginationView(axis: .horizontal, transitionStyle: .pageCurl, showsIndicators: false) {
+            ForEach(self.chapterPages, id: \.absoluteString) { url in
+                GeometryReader { geometry in
+                    KFImage(url)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                        .clipped()
                 }
+                .edgesIgnoringSafeArea(.all)
             }
         }
+        .hideNavigationBar()
         .onAppear(perform: self.fetchChapter)
     }
     
@@ -39,10 +44,19 @@ struct ReaderView: View {
             .getChapter(forId: self.chapterId)
             .subscribe(onNext: { (chapter) in
                 self.chapterPages = chapter.pageURLs
+                self.preloadImages(for: self.chapterPages)
             }, onError: { (error) in
                 debugPrint(error)
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    /// Preload page images sequentially.
+    private func preloadImages(for urls: [URL], index: Int = 0) {
+        guard index < urls.count else { return }
+        KingfisherManager.shared.retrieveImage(with: urls[index]) { (_) in
+            self.preloadImages(for: urls, index: index + 1)
+        }
     }
 }
 

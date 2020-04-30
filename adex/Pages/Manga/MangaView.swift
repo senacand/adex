@@ -32,13 +32,6 @@ struct MangaView: View {
             }
             Section(header: Text("Chapters")) {
                 ForEach(manga.chapter, id: \.0) { chapter  in
-//                    Button(action: {
-//                        self.safariURL = URL(string: "https://mangadex.org/chapter/\(chapter.0)")
-//                        self.showSafari = true
-//                    }) {
-//                        Text(chapter.1.chapterName)
-//                            .lineLimit(1)
-//                    }
                     NavigationLink(destination: ReaderView(chapterId: chapter.0)) {
                         Text(chapter.1.chapterName)
                             .lineLimit(1)

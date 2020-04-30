@@ -11,6 +11,7 @@
 		DD16F83D245A26E900B3B587 /* DexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F83C245A26E900B3B587 /* DexService.swift */; };
 		DD16F83F245A305600B3B587 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F83E245A305600B3B587 /* Chapter.swift */; };
 		DD16F842245A312600B3B587 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16F841245A312600B3B587 /* ReaderView.swift */; };
+		DD240DC4245B7FBA009B9E30 /* RefreshUI in Frameworks */ = {isa = PBXBuildFile; productRef = DD240DC3245B7FBA009B9E30 /* RefreshUI */; };
 		DD56133A2459745E000DFEDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5613392459745E000DFEDA /* AppDelegate.swift */; };
 		DD56133C2459745E000DFEDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD56133B2459745E000DFEDA /* SceneDelegate.swift */; };
 		DD56133F2459745E000DFEDA /* adex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD56133D2459745E000DFEDA /* adex.xcdatamodeld */; };
@@ -101,6 +102,7 @@
 				DDC8FD182459B39C00E3588C /* RxRelay in Frameworks */,
 				DDC8FD252459BB9200E3588C /* SwiftUIX in Frameworks */,
 				DDC8FD1F2459B69F00E3588C /* KingfisherSwiftUI in Frameworks */,
+				DD240DC4245B7FBA009B9E30 /* RefreshUI in Frameworks */,
 				DDC8FD142459B39C00E3588C /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +297,7 @@
 				DDC8FD212459B76500E3588C /* RxMoya */,
 				DDC8FD242459BB9200E3588C /* SwiftUIX */,
 				DDC8FD2B2459E1E400E3588C /* HTMLEntities */,
+				DD240DC3245B7FBA009B9E30 /* RefreshUI */,
 			);
 			productName = adex;
 			productReference = DD5613362459745E000DFEDA /* ADex.app */;
@@ -378,6 +381,7 @@
 				DDC8FD202459B76500E3588C /* XCRemoteSwiftPackageReference "Moya" */,
 				DDC8FD232459BB9200E3588C /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				DDC8FD2A2459E1E400E3588C /* XCRemoteSwiftPackageReference "swift-html-entities" */,
+				DD240DC2245B7FBA009B9E30 /* XCRemoteSwiftPackageReference "RefreshUI" */,
 			);
 			productRefGroup = DD5613372459745E000DFEDA /* Products */;
 			projectDirPath = "";
@@ -766,6 +770,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD240DC2245B7FBA009B9E30 /* XCRemoteSwiftPackageReference "RefreshUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/noppefoxwolf/RefreshUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		DDC8FD122459B39C00E3588C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -809,6 +821,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD240DC3245B7FBA009B9E30 /* RefreshUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD240DC2245B7FBA009B9E30 /* XCRemoteSwiftPackageReference "RefreshUI" */;
+			productName = RefreshUI;
+		};
 		DDC8FD132459B39C00E3588C /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDC8FD122459B39C00E3588C /* XCRemoteSwiftPackageReference "RxSwift" */;
