@@ -60,7 +60,7 @@ struct LibraryView: View {
                 AddMangaView(onAdd: { (manga) in
                     let _ = self.libraryStore.add(manga: manga)
                     self.showAddManga = false
-                })
+                }, onCancel: { self.showAddManga = false })
                 .colorScheme(self.colorScheme)
             }
         }
