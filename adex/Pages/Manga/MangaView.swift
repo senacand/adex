@@ -14,9 +14,19 @@ import SafariServices
 
 struct MangaView: View {
     let manga: Manga
+    let libraryStore: LibraryStore
     
-    @State var showSafari: Bool = false
-    @State var safariURL: URL?
+    @State private var readHistory: [String: Bool] = [:]
+    @State private var showSafari: Bool = false
+    @State private var safariURL: URL?
+    @State private var selection: String?
+    
+    init(manga: Manga, libraryStore: LibraryStore) {
+        self.manga = manga
+        self.libraryStore = libraryStore
+        
+        _readHistory = State(initialValue: self.libraryStore.getReadHistory(forMangaId: self.manga.id ?? ""))
+    }
     
     var body: some View {
         List {
@@ -32,17 +42,28 @@ struct MangaView: View {
             }
             Section(header: Text("Chapters")) {
                 ForEach(manga.chapter, id: \.0) { chapter  in
-                    NavigationLink(destination: ReaderView(chapterId: chapter.0)) {
-                        Text(chapter.1.chapterName)
-                            .lineLimit(1)
+                    HStack {
+                        if !self.readHistory[chapter.0, default: false] {
+                            Circle()
+                                .fill(Color.blue)
+                                .frame(width: 8.0, height: 8.0, alignment: .center)
+                        }
+                        NavigationLink(destination: ReaderView(chapterId: chapter.0), tag: chapter.0, selection: self.$selection) {
+                            Text(chapter.1.chapterName)
+                                .lineLimit(1)
+                        }
+                        .onTapGesture {
+                            self.selection = chapter.0
+                            self.libraryStore.addReadHistory(forMangaId: self.manga.id ?? "", chapterId: chapter.0)
+                        }
                     }
                 }
             }
         }
         .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
-        .sheet(isPresented: $showSafari) {
-            SafariView(url: self.safariURL!)
+        .onAppear {
+            self.readHistory = self.libraryStore.getReadHistory(forMangaId: self.manga.id ?? "")
         }
     }
 }
@@ -51,13 +72,13 @@ struct MangaView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                MangaView(manga: Manga.mock[0])
+                MangaView(manga: Manga.mock[0], libraryStore: LibraryStore(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             }
             .colorScheme(.dark)
             .previewDevice("iPhone X")
             
             NavigationView {
-                MangaView(manga: Manga.mock[0])
+                MangaView(manga: Manga.mock[0], libraryStore: LibraryStore(appDelegate: UIApplication.shared.delegate as! AppDelegate))
             }
             .colorScheme(.light)
             .previewDevice("iPhone X")
@@ -107,18 +128,4 @@ private struct InfoSectionCover: View {
                 .padding(EdgeInsets(top: 150.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
         }
     }
-}
-
-struct SafariView: UIViewControllerRepresentable {
-
-    let url: URL
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
-        return SFSafariViewController(url: url)
-    }
-
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
-
-    }
-
 }

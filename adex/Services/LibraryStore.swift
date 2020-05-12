@@ -49,6 +49,10 @@ public class LibraryStore: ObservableObject {
             try managedContext.save()
             loadLibrary()
             
+            for (chapterId, _) in manga.chapter {
+                addReadHistory(forMangaId: manga.id ?? "", chapterId: chapterId) // Set all to read.
+            }
+            
             return true
         } catch let error as NSError {
             print("Could not add. \(error), \(error.userInfo)")
@@ -125,6 +129,51 @@ public class LibraryStore: ObservableObject {
                 onCompleted()
             })
             .disposed(by: disposeBag)
+    }
+    
+    public func addReadHistory(forMangaId mangaId: String, chapterId: String) {
+        guard ((try? getReadHistory(predicate: NSPredicate(format: "mangaId = %@ AND chapterId = %@", mangaId, chapterId))) ?? []).count == 0 else { return } // Read history already exists, ignore.
+        
+        let entity = NSEntityDescription.entity(
+            forEntityName: "ReadHistory",
+            in: managedContext
+        )!
+        let readHistory = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        readHistory.setValue(mangaId, forKey: "mangaId")
+        readHistory.setValue(chapterId, forKey: "chapterId")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not add. \(error), \(error.userInfo)")
+        }
+    }
+    
+    public func getReadHistory(forMangaId mangaId: String) -> [String: Bool] {
+        guard let readHistory = try? getReadHistory(predicate: NSPredicate(format: "mangaId = %@", mangaId)) else { return [:] }
+        
+        var readHistoryDict: [String: Bool] = [:]
+        for history in readHistory {
+            let chapterId = history.value(forKey: "chapterId") as! String
+            readHistoryDict[chapterId] = true
+        }
+        
+        return readHistoryDict
+    }
+    
+    private func getReadHistory(predicate: NSPredicate? = nil) throws -> [NSManagedObject] {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ReadHistory")
+            if let predicate = predicate {
+                fetchRequest.predicate = predicate
+            }
+        
+            do {
+                return try managedContext.fetch(fetchRequest)
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+                throw error
+            }
     }
     
     private func getLibrary(predicate: NSPredicate? = nil) throws -> [NSManagedObject] {

@@ -46,11 +46,11 @@ struct AddMangaView: View {
                                     
                                     switch (error as NSError).code {
                                     case 404:
-                                        self.alertMessage = "Manga not found."
+                                        self.alertMessage = NSLocalizedString("Manga not found.", comment: "")
                                     case 500:
-                                        self.alertMessage = "Something's wrong with MangaDex. Please try again later."
+                                        self.alertMessage = NSLocalizedString("Something's wrong with MangaDex. Please try again later.", comment: "")
                                     default:
-                                        self.alertMessage = "An error has occured. Please try again."
+                                        self.alertMessage = NSLocalizedString("An error has occured. Please try again.", comment: "")
                                     }
                                     
                                     self.showAlert = true

@@ -22,7 +22,7 @@ struct LibraryView: View {
         NavigationView {
             List {
                 ForEach(libraryStore.library) { manga in
-                    NavigationLink(destination: MangaView(manga: manga)) {
+                    NavigationLink(destination: MangaView(manga: manga, libraryStore: self.libraryStore)) {
                         MangaRow(manga: manga.manga)
                     }
                 }
@@ -34,24 +34,21 @@ struct LibraryView: View {
             }
             .navigationBarTitle(Text("My Library"))
             .navigationBarItems(
-                trailing: HStack {
+                leading: VStack {
                     if !self.isLoading {
                         Button(action: updateLibrary, label: {
-                            HStack {
-                                Image(systemName: "arrow.clockwise.circle.fill")
-                            }
+                            Text("Refresh")
                         })
                     } else {
                         ActivityIndicator()
                     }
-                    
-                    Button(action: { self.showAddManga = true }, label: {
-                        HStack {
-                            Image(systemName: "plus.circle.fill")
-                            Text("Add")
-                        }
-                    })
-                }
+                },
+                trailing: Button(action: { self.showAddManga = true }, label: {
+                    HStack {
+                        Image(systemName: "plus.circle.fill")
+                        Text("Add")
+                    }
+                })
             )
             .onAppear(perform: {
                 if !self.hasAppeared {
