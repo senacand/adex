@@ -6,10 +6,16 @@
         <attribute name="lastUpdated" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="payload" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <fetchIndex name="byMangaId">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <entity name="ReadHistory" representedClassName="ReadHistory" syncable="YES" codeGenerationType="class">
         <attribute name="chapterId" optional="YES" attributeType="String"/>
         <attribute name="mangaId" optional="YES" attributeType="String"/>
+        <fetchIndex name="byMangaId">
+            <fetchIndexElement property="mangaId" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <elements>
         <element name="MangaData" positionX="-63" positionY="-18" width="128" height="118"/>
