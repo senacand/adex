@@ -64,7 +64,7 @@
 		DD16F83C245A26E900B3B587 /* DexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexService.swift; sourceTree = "<group>"; };
 		DD16F83E245A305600B3B587 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		DD16F841245A312600B3B587 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
-		DD5613362459745E000DFEDA /* ADex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD5613362459745E000DFEDA /* ADex Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ADex Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5613392459745E000DFEDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD56133B2459745E000DFEDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD56133E2459745E000DFEDA /* adex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = adex.xcdatamodel; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		DD5613372459745E000DFEDA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD5613362459745E000DFEDA /* ADex.app */,
+				DD5613362459745E000DFEDA /* ADex Reader.app */,
 				DD56134F24597466000DFEDA /* adexTests.xctest */,
 				DD56135A24597466000DFEDA /* adexUITests.xctest */,
 			);
@@ -300,7 +300,7 @@
 				DD240DC3245B7FBA009B9E30 /* RefreshUI */,
 			);
 			productName = adex;
-			productReference = DD5613362459745E000DFEDA /* ADex.app */;
+			productReference = DD5613362459745E000DFEDA /* ADex Reader.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DD56134E24597466000DFEDA /* adexTests */ = {
@@ -619,8 +619,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neverminddev.adex;
-				PRODUCT_NAME = ADex;
+				PRODUCT_NAME = "ADex Reader";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -639,8 +640,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neverminddev.adex;
-				PRODUCT_NAME = ADex;
+				PRODUCT_NAME = "ADex Reader";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
