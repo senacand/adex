@@ -35,6 +35,7 @@ struct ReaderView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                         .clipped()
+                    .backgroundColor(.black)
                 }
                 .edgesIgnoringSafeArea(.all)
             }
