@@ -99,17 +99,16 @@ private struct AboutSection: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text("About")
-                    .font(.adexSubtitle)
-                    .fontWeight(.semibold)
-                    .padding(.bottom, 12.0)
-                Text(description)
-                    .font(.adexBody)
-                .lineSpacing(6)
-            }
-            .padding(16.0)
+            Text("About")
+                .font(.adexSubtitle)
+                .fontWeight(.semibold)
+                .padding(.bottom, 12.0)
+            Text(description)
+                .font(.adexBody)
+            .lineSpacing(6)
         }
+        .frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
+        .padding(16.0)
         .backgroundColor(.cardBackground)
         .cornerRadius(16.0)
     }
