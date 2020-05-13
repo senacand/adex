@@ -57,7 +57,7 @@ struct MangaView: View {
                     )
                         .padding(.bottom, 8.0)
                 }
-                ChaptersSection(mangaId: manga.id ?? "", chapters: manga.chapter, libraryStore: libraryStore)
+                ChaptersSection(mangaId: manga.id ?? "", chapters: manga.chapter, readHistory: readHistory, libraryStore: libraryStore)
                 Button(action: {
                     UIApplication.shared.open(URL(string: "https://mangadex.org/title/\(self.manga.id ?? "")")!)
                 }) {
@@ -184,7 +184,7 @@ private struct ControlSection: View {
 private struct ChaptersSection: View {
     let mangaId: String
     let chapters: [(String, MangaChapter)]
-    let readHistory: [String: Bool] = [:]
+    let readHistory: [String: Bool]
     let libraryStore: LibraryStore
     
     @State private var selection: String?

@@ -22,7 +22,7 @@ public struct Manga: Codable, Identifiable, Equatable {
             ($0.key, $0.value)
         }
         .sorted {
-            $0.1.timestamp > $1.1.timestamp
+            Double($0.1.chapter) ?? 0 > Double($1.1.chapter) ?? 0
         }
     }
     
