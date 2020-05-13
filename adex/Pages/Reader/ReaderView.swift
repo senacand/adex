@@ -40,7 +40,6 @@ struct ReaderView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .hideNavigationBar()
         .onAppear {
             if !self.hasAppeared {
                 self.fetchChapter()
